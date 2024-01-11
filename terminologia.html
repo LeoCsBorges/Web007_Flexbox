@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/media-query.css">
+    <link rel="stylesheet" href="css/iframe-content.css">
+    <title>FlexBox</title>
+</head>
+<body>
+    <h1>Fundamentos e Terminologia</h1>
+
+    <p>Como o flexbox é um módulo inteiro e não uma única propriedade, ele envolve muitas coisas, incluindo todo o seu conjunto de propriedades. Alguns deles devem ser colocados no recipiente (elemento pai, conhecido como "flex container") enquanto os outros devem ser colocados nos elementos filhos (ditos "flex items”).</p>
+
+    <p>Se o layout comum é baseado nas direções de fluxo <em>block</em> e <em>inline</em>, o flexbox layout será baseado em "direções de fluxo flexível". Por favor, dê uma olhada nesta figura da especificação, explicando a ideia principal por trás do flex layout.</p>
+    
+    <img src="https://css-tricks.com/wp-content/uploads/2018/11/00-basic-terminology.svg" alt="flexbox layout">
+
+    <p>Os itens serão dispostos seguindo o eixo horizontal (principal), do início-principal ao fim-principal. Ou o eixo vertical (cruzado), do início-cruzado ao fim-cruzado.</p>
+
+    <ul>
+        <li>
+            <strong>Main-axis</strong> – O <em>main-axis</em> de um contêiner flexível é o eixo principal ao longo do qual os flex items são dispostos. Cuidado, não é necessariamente horizontal; depende da propriedade <em>flex-direction</em>.
+        </li>
+        <li>
+            <strong>Main-start</strong> | <strong>Main-end</strong> – Os flex items são colocados dentro do contêiner começando do main-start e indo para o main-end.
+        </li>
+        <li>
+            <strong>Main size</strong> – A largura ou altura de um flex item, o que estiver na dimensão principal, é o tamanho principal do item. A propriedade de tamanho principal do flex item é a propriedade 'width' ou 'height', o que estiver na dimensão principal.
+        </li>
+        <li>
+            <strong>Cross axis</strong> – O eixo perpendicular ao eixo principal é chamado de eixo transversal. Sua direção depende da direção do eixo principal.
+        </li>
+        <li>
+            <strong>Cross-start</strong> | <strong>Cross-end</strong> – As linhas flex são preenchidas com itens e colocadas no recipiente, começando no lado cross-start do contêiner flex e indo em direção ao lado cross-end.
+        </li>
+        <li>
+            <strong>Cross size</strong> – A largura ou altura de um flex item, o que estiver na dimensão cruzada, é o <em>cross size</em> do item. A propriedade de cross size é 'width' ou 'height' qualquer que esteja na dimensão cruzada.
+        </li>
+    </ul>
+
+
+</body>
+</html>

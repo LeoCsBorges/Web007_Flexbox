@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/media-query.css">
+    <link rel="stylesheet" href="css/iframe-content.css">
+    <title>FlexBox</title>
+</head>
+<body>
+    <h1>Prefixing</h1>
+    <p>O Flexbox requer algum prefixo de fornecedor para oferecer suporte ao maior número possível de navegadores. Ele não inclui apenas propriedades pendentes com o prefixo do fornecedor, mas na verdade há nomes de propriedade e valor totalmente diferentes. Isso ocorre porque a especificação do Flexbox mudou ao longo do tempo, criando uma versão "antiga", "tweener" e "nova".</p>
+
+    <p>Talvez a melhor maneira de lidar com isso seja escrever na nova (e final) sintaxe e executar seu CSS através do Autoprefixer, que lida muito bem com os fallbacks.</p>
+
+    <p>Alternativamente, aqui está um @mixin Sass para ajudar com alguns dos prefixos, que também lhe dá uma ideia de que tipo de coisas precisam ser feitas:</p>
+
+
+<pre class="prefixing"><code>
+    @mixin flexbox() {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+    }
+    
+    @mixin flex($values) {
+        -webkit-box-flex: $values;
+        -moz-box-flex:  $values;
+        -webkit-flex:  $values;
+        -ms-flex:  $values;
+        flex:  $values;
+    }
+    
+    @mixin order($val) {
+        -webkit-box-ordinal-group: $val;  
+        -moz-box-ordinal-group: $val;     
+        -ms-flex-order: $val;     
+        -webkit-order: $val;  
+        order: $val;
+    }
+    
+    .wrapper {
+        @include flexbox();
+    }
+    
+    .item {
+        @include flex(1 200px);
+        @include order(2);
+    }
+
+</code></pre>
+</body>
+</html>

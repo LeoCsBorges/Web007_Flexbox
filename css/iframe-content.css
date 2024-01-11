@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+/* CONFIGURACOES GERAIS */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .8em;
+    padding: 0 12px;
+    color: #2C497F;
+    text-align: justify;
+}
+
+body h1 {
+    text-align: left;
+}
+
+p {
+    text-indent: 25px;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    margin-top: 28px;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+}
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+h2.standout {
+    padding: 8px;
+    font-variant: small-caps;
+    background-image: linear-gradient(to right, orange, white);
+    border-radius: 8px;
+}
+
+img {
+    width: 75%;
+}
+
+ul li {
+    margin-bottom: 12px;
+}
+
+
+/* CONFIGURACAO DA BARRA DE ROLAGEM */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px; 
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment  {
+    height: 24px;
+    background-color: transparent;
+
+}
+::-webkit-scrollbar-track-piece  {
+    background-color: #d0d0d0;
+   -webkit-border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 50px;
+    background-color: #2C497F;
+    border: 1px solid #808A9F;
+    -webkit-border-radius: 8px;
+}
+
+
+/* Codigo prefixing.html */
+.prefixing {
+    width: 100%;
+    padding-bottom: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+}

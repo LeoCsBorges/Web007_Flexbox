@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/media-query.css">
+    <link rel="stylesheet" href="css/iframe-content.css">
+    <title>FlexBox</title>
+</head>
+<body>
+    <h1>Propriedades do Flexbox</h1>
+    <img src="https://css-tricks.com/wp-content/uploads/2018/10/01-container.svg" alt="flex container">
+
+    <h2 class="standout">Propriedades para o elemento Pai (flex container)</h2>
+
+
+<!-- DISPLAY -->
+<h2>Display</h2>
+<p>Isso define um <em>flex container</em>; <em>inline</em> ou <em>block</em>, dependendo do valor dado. Permite um contexto flexível para todos os seus filhos diretos.</p>
+<pre class="prefixing"><code>
+    .container {
+        display: flex; /* ou inline-flex */
+    }
+</code></pre>
+
+
+<!-- FLEX-DIRECTION -->
+<h2>Flex-direction</h2>
+<img src="https://css-tricks.com/wp-content/uploads/2018/10/flex-direction.svg" alt="flex-direction">
+<p>Isso estabelece o eixo principal, definindo assim a direção em que os itens flex são colocados no contêiner flex. O Flexbox é (além do <em>wrapping</em> opcional) um conceito de layout unidirecional. Pense em itens flexíveis como dispostos principalmente em linhas horizontais ou colunas verticais.</p>
+<pre class="prefixing"><code>
+    .container {
+        flex-direction: row
+                        row-reverse
+                        column
+                        column-reverse;
+    }
+</code></pre>
+<ul>
+    <li><strong>row</strong> (default): esquerda para direita em ltr; direita para esquerda em rtl</li>
+    <li><strong>row-reverse</strong>: direita para esquerda em ltr; esquerda para direita em rtl</li>
+    <li><strong>column</strong>: o mesmo que row mas do topo para o fundo</li>
+    <li><strong>column-reverse</strong>: o memso que row-reverse mas do fundo para o topo</li>
+</ul>
+
+
+<!-- FLEX-WRAP -->
+<h2>Flex-wrap</h2>
+<img src="https://css-tricks.com/wp-content/uploads/2018/10/flex-wrap.svg" alt="flex-wrap">
+<p>Por padrão, todos os itens flexíveis tentarão caber em uma linha. Você pode alterar isso e permitir que os itens sejam "quebrados" conforme necessário com essa propriedade.</p>
+<pre class="prefixing"><code>
+    .container {
+        flex-wrap:  nowrap
+                    wrap
+                    wrap-reverse;
+    }
+</code></pre>
+<ul>
+    <li><strong>nowrap</strong> (default): todos os flex items ficarão em uma linha</li>
+    <li><strong>wrap</strong>: os flex items irão "quebrar" em múltiplas linhas, do topo para o fundo</li>
+    <li><strong>wrap-reverse</strong>: os flex items irão "quebrar" em múltiplas linhas do fundo para o topo</li>
+</ul>
+
+
+<!-- FLEX-FLOW -->
+<h2>Flex-flow</h2>
+<p>Esta é uma abreviação (<em>shorthand</em>) para as propriedades <em>flex-direction</em> e <em>flex-wrap</em>, que juntas definem os eixos principal e transversal do flex container. O valor padrão é row nowrap.</p>
+<pre class="prefixing"><code>
+    .container {
+        flex-flow:  column wrap;
+    }
+</code></pre>
+
+
+<!-- JUSTIFY-CONTENT -->
+<h2>Justify-content</h2>
+<img src="https://css-tricks.com/wp-content/uploads/2018/10/justify-content.svg" alt="justify-content">
+<p>Isso define o alinhamento ao longo do eixo principal. Ele ajuda a distribuir espaço livre extra quando todos os itens flexíveis em uma linha são inflexíveis ou são flexíveis, mas atingiram seu tamanho máximo. Ele também exerce algum controle sobre o alinhamento dos itens quando eles transbordam a linha.</p>
+<pre class="prefixing"><code>
+    .container {
+        justify-content:    flex-start
+                            flex-end
+                            center
+                            space-between
+                            space-around
+                            space-evenly
+                            start
+                            end
+                            left
+                            right
+                            safe
+                            unsafe;
+    }
+</code></pre>
+<ul>
+    <li>
+        <strong>Flex-start (padrão)</strong>: os itens são amontoados no início da flex-direction
+    </li>
+    <li>
+        <strong>Flex-end</strong>: os itens são amontoados no final do flex-direction
+    </li>
+    <li>
+        <strong>Center</strong>: os itens são centralizados ao longo da linha
+    </li>
+    <li>
+        <strong>Space-between</strong>: os itens são distribuídos uniformemente na linha; o primeiro item está na linha inicial, o último item na linha final
+    </li>
+    <li>
+        <strong>Space-around</strong>: os itens são distribuídos uniformemente na linha com igual espaço ao seu redor. Observe que visualmente os espaços não são iguais, já que todos os itens têm espaço igual em ambos os lados. O primeiro item terá uma unidade de espaço na borda do contêiner, mas duas unidades de espaço entre o próximo item, porque o próximo item tem seu próprio espaçamento que se aplica
+    </li>
+    <li>
+        <strong>Space-evenly</strong>: os itens são distribuídos de modo que o espaçamento entre quaisquer dois itens (e o espaço para as bordas) seja igual
+    </li>
+    <li>
+        <strong>Start</strong>: os itens são amontoados no início da direção do modo de escrita   
+    </li>
+    <li>
+        <strong>End</strong>: os itens são amontoados no final da direção do modo de escrita
+    </li>
+    <li>
+        <strong>Left</strong>: os itens são amontoados em direção à borda esquerda do contêiner, a menos que isso não faça sentido com a <em>flex-direction</em>, então ele se comporta como <em>start</em>
+    </li>
+    <li>
+        <strong>Right</strong>: os itens são amontoados na borda direita do contêiner, a menos que isso não faça sentido com a <em>flex-direction</em>, então ele se comporta como <em>end</em>
+    </li>
+
+    <p>&#9657Nota: Há também duas palavras-chave adicionais que você pode emparelhar com esses valores: <em>safe</em> e <em>unsafe</em>. O uso do safe garante que, por mais que você faça esse tipo de posicionamento, você não pode empurrar um elemento de tal forma que ele seja renderizado fora da tela (por exemplo, fora da parte superior) de tal forma que o conteúdo não possa ser rolado também (chamado de "perda de dados").</p>
+</ul>
+
+
+<!-- ALIGN-ITEMS -->
+<h2>Align-items</h2>
+<img src="https://css-tricks.com/wp-content/uploads/2018/10/align-items.svg" alt="align-items">
+<p>Isso define o comportamento padrão de como os itens flexíveis são dispostos ao longo do eixo cruzado (<em>cross axis</em>) na linha atual. Pense nisso como a versão de <em>justify-content</em> para o eixo cruzado (perpendicular ao eixo principal).</p>
+<pre class="prefixing"><code>
+    .container {
+        align-items:    stretch
+                        flex-start
+                        flex-end
+                        center
+                        baseline
+                        first baseline
+                        last baseline
+                        start
+                        end
+                        self-start
+                        self-end
+                        safe
+                        unsafe;
+    }
+</code></pre>
+<ul>
+    <li>
+        <strong>Stretch</strong> (padrão): esticar para encher o recipiente (ainda respeita o min-width/max-width)
+        
+    </li>
+    <li>
+        <strong>Flex-start</strong> / <strong>start</strong> / <strong>self-start</strong>: os itens são colocados no início do eixo transversal. A diferença entre eles é sutil, e diz respeito ao respeito às regras de <em>flex-direction</em> ou às regras de modo de escrita.
+    </li>
+    <li>
+        <strong>Flex-end</strong> / <strong>end</strong> / <strong>self-end</strong>: os itens são colocados no final do eixo transversal. A diferença novamente é sutil e diz respeito ao respeito às regras de <em>flex-direction</em> versus regras de modo de escrita.
+    </li>
+    <li>
+        <strong>Center</strong>: os itens estão centralizados no eixo cruzado
+    </li>
+    <li>
+        <strong>Baseline</strong>: os itens são alinhados como suas linhas de base
+    <em></li></em>
+<em></ul></em>
+<p>As palavras-chave modificadoras <em>safe</em> e <em>unsafe</em> podem ser usadas em conjunto com todas as outras palavras-chave e lidam com a ajuda para evitar o alinhamento de elementos de modo que o conteúdo se torne inacessível.</p>
+
+
+<!-- ALIGN-CONTENT -->
+<h2>Align-Content</h2>
+<img src="https://css-tricks.com/wp-content/uploads/2018/10/align-content.svg" alt="align-content">
+<p>Isso alinha as linhas de um contêiner flexível quando há espaço extra no eixo cruzado, semelhante a como o <em>justify-content</em> alinha itens individuais dentro do eixo principal.</p>
+
+<p style="font-size: .7em;">&#9657Nota: Essa propriedade só tem efeito em <em>flex containers</em> de várias linhas, onde flex-wrap é definido como <em>wrap</em> ou <em>wrap-reverse</em>. Um contêiner flexível de linha única (ou seja, onde flex-wrap é definido como seu valor padrão, no-wrap) não refletirá o <em>align-content</em>.</p>
+<pre class="prefixing"><code>
+    .container {
+        align-content:  flex-start
+                        flex-end
+                        center
+                        space-between
+                        space-around
+                        space-evenly
+                        stretch
+                        start
+                        end
+                        baseline
+                        first baseline
+                        last baseline
+                        safe
+                        unsafe;
+    }
+</code></pre>
+<ul>
+    <li>
+        <strong>Normal</strong> (padrão): os itens são amontoados em sua posição padrão como se nenhum valor fosse definido
+    </li>
+    <li>
+        <strong>Flex-start</strong> / <strong>start</strong>: itens amontoados no início do container. O flex-start (mais suportado) honra a direção flex, enquanto o start honra a direção do modo de escrita
+    </li>
+    <li>
+        <strong>Flex-end</strong> / <strong>end</strong>: itens amontoados no final do container. O flex-end honra a direção flex, enquanto o end honra a direção do modo de escrita
+    </li>
+    <li>
+        <strong>Center</strong>: itens centralizados no contêiner
+    </li>
+    <li>
+        <strong>Space-between</strong>: itens distribuídos uniformemente; a primeira linha está no início do contêiner, enquanto a última está no final
+    </li>
+    <li>
+        <strong>Space-around</strong>: itens distribuídos uniformemente com espaço igual ao redor de cada linha
+    </li>
+    <li>
+        <strong>Space-evenly</strong>: os itens são distribuídos uniformemente com igual espaço ao seu redor  
+    </li>
+    <li>
+        <strong>Stretch</strong>: as linhas se estendem para ocupar o espaço restante
+    </li>
+</ul>
+
+
+<!-- GAP, ROW-GAP, COLUMN-GAP -->
+<h2>Gap, row-gap, column-gap</h2>
+<img src="https://css-tricks.com/wp-content/uploads/2021/09/gap-1.svg" alt="gap">
+<p>A propriedade <em>gap</em> controla explicitamente o espaço entre itens flexíveis. Ele aplica esse espaçamento apenas entre itens que não estão nas bordas externas.</p>
+<pre class="prefixing"><code>
+    .container {
+        display: flex;
+        ...
+        gap: 10px;
+        gap: 10px 20px; /* row-gap column-gap */
+        row-gap: 10px;
+        column-gap: 20px;    
+    }
+</code></pre>
+<p>O comportamento poderia ser pensado como uma lacuna mínima, se a lacuna entre os itens for maior de alguma forma (por causa de algo como <code>justify-content: space-between;</code>), então a lacuna (gap) só terá efeito se esse espaço acabar menor.</p>
+
+<p>Não é exclusivamente para Flexbox, gap funciona em <em>Grid</em> e em layouts de várias colunas também.</p>
+
+
+<h2 class="standout">Propriedades para os elementos Filhos (flex items)</h2>
+<!-- ORDER -->
+<h2>Order</h2>
+<img src="https://css-tricks.com/wp-content/uploads/2018/10/order.svg" alt="order">
+<p>Por padrão, os itens flex são dispostos na ordem de origem. No entanto, a propriedade order controla a ordem em que eles aparecem no contêiner flex.</p>
+<pre class="prefixing"><code>
+    .item {
+        order: 5; /* o padrão é 0 */  
+    }
+</code></pre>
+<p>Itens com a mesma ordem revertem para a ordem de origem.</p>
+
+
+<!-- FLEX-GROW -->
+<h2>Flex-grow</h2>
+<img src="https://css-tricks.com/wp-content/uploads/2018/10/flex-grow.svg" alt="flex-grow">
+<p>Isso define a capacidade de um item flexível crescer, se necessário. Ele aceita um valor sem unidade que serve como uma proporção. Ele determina a quantidade de espaço disponível dentro do contêiner flexível que o item deve ocupar.</p>
+
+<p>Se todos os itens tiverem <em>flex-grow</em> definido como 1, o espaço restante no recipiente será distribuído igualmente para todas os filhos. Se uma dos filhos tem um valor de 2, esse item ocuparia o dobro do espaço de qualquer um dos outros (ou tentará, pelo menos).</p>
+<pre class="prefixing"><code>
+    .item {
+        flex-grow: 4; /* o padrão é 0 */  
+    }
+</code></pre>
+<p>Números negativos são inválidos.</p>
+
+
+<!-- FLEX-SHKINK -->
+<h2>Flex-shrink</h2>
+<p>Isso define a capacidade de um item flexível encolher se necessário.</p>
+<pre class="prefixing"><code>
+    .item {
+        flex-shrink: 3; /* o padrão é 1 */  
+    }
+</code></pre>
+<p>Números negativos são inválidos.</p>
+
+
+<!-- FLEX-BASIS -->
+<h2>Flex-basis</h2>
+<p>Isso define o tamanho padrão de um elemento antes que o espaço restante seja distribuído. Pode ser um comprimento (por exemplo, 20%, 5rem, etc.) ou uma palavra-chave. A palavra-chave <em>auto</em> significa "olhar para minha propriedade width ou height". A palavra-chave <em>content</em> significa "dimensioná-la com base no conteúdo do item" – essa palavra-chave ainda não é bem suportada, então é difícil testar e mais difícil saber o que seus irmãos <em>max-content</em>, <em>min-content</em> e <em>fit-content</em> fazem.</p>
+<pre class="prefixing"><code>
+    .item {
+        flex-basis: auto; /* o padrão é auto */  
+    }
+</code></pre>
+<p>Se definido como 0, o espaço extra ao redor do conteúdo não será considerado. Se definido como <em>auto</em>, o espaço extra é distribuído com base em seu valor de <em>flex-grow</em></p>
+
+
+<!-- FLEX -->
+<h2>Flex</h2>
+<p>Esta é a abreviação para <em>flex-grow</em>, <em>flex-shrink</em> e <em>flex-basis</em> combinados. O segundo e terceiro parâmetros (flex-shrink e flex-basis) são opcionais. O padrão é 0 1 auto, mas se você defini-lo com um único valor numérico, como flex: 5;, isso muda a base flexível para 0%, então é como definir <code>flex-grow: 5; flex-shrink: 1; flex-basis: 0%;</code>.</p>
+<pre class="prefixing"><code>
+    .item {
+        flex: none;
+    }
+</code></pre>
+<p>É recomendável que você use essa propriedade abreviada em vez de definir as propriedades individuais. O <em>shorthand</em> define os outros valores de forma inteligente.</p>
+
+
+<!-- ALIGN-SELF -->
+<h2>Align-self</h2>
+<img src="https://css-tricks.com/wp-content/uploads/2018/10/align-self.svg" alt="align-items">
+<p>Isso permite que o alinhamento padrão (ou aquele especificado por <em>align-items</em>) seja substituído para itens flex individualmente.</p>
+
+<p>Consulte a explicação de <em>align-items</em> para entender os valores disponíveis.</p>   
+<pre class="prefixing"><code>
+    .item {
+        align-self: auto
+                    flex-start 
+                    flex-end
+                    center
+                    baseline
+                    stretch;
+    }
+</code></pre>
+<p>&#9657Nota: <em>float</em>, <em>clear</em> e <em>vertical-align</em> não tem efeito em um flex item.</p>
+
+
+
+</body>    
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/media-query.css">
+    <link rel="stylesheet" href="css/iframe-content.css">
+    <title>FlexBox</title>
+</head>
+<body>
+    <h1>Exemplos com Flexbox</h1>
+    <p>Vamos começar com um exemplo muito simples, resolvendo um problema quase diário: a centralização perfeita. Não poderia ser mais simples se você usar o flexbox.</p>
+<pre class="prefixing"><code>
+    .parent {
+        display: flex;
+        height: 300px; /* Or whatever */
+        }
+        
+        .child {
+        width: 100px;  /* Or whatever */
+        height: 100px; /* Or whatever */
+        margin: auto;  /* Magic! */
+        }
+</code></pre>
+    <p>Isso depende do fato de que uma margem definida para auto em um contêiner flexível absorve espaço extra. Assim, definir uma margem de auto tornará o item perfeitamente centralizado em ambos os eixos.</p>
+    <p>Agora vamos usar mais algumas propriedades. Considere uma lista de 6 itens, todos com dimensões fixas, mas que podem ser dimensionados automaticamente. Queremos que eles sejam distribuídos uniformemente no eixo horizontal para que, quando redimensionarmos o navegador, tudo seja bem dimensionado e sem <em>media queries</em>.</p>
+<pre class="prefixing"><code>
+.flex-container {
+/* We first create a flex layout context */
+    display: flex;
+    
+/* Then we define the flow direction 
+        and if we allow the items to wrap 
+        * Remember this is the same as:
+        * flex-direction: row;
+        * flex-wrap: wrap;
+        */
+    flex-flow: row wrap;
+    
+/* Then we define how is distributed 
+the remaining space */
+    justify-content: space-around;
+    }
+</code></pre>
+    <p>Terminado. Todo o resto é apenas uma preocupação de estilo. Abaixo está uma caneta com este exemplo. Certifique-se de ir para CodePen e tente redimensionar suas janelas para ver o que acontece.</p>
+    <a href="https://codepen.io/team/css-tricks/pen/EKEYob" target="_blank">Exemplo > "https://codepen.io/team/css-tricks/pen/EKEYob"</a>
+</body>
+</html>
