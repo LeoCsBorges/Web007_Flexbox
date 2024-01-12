@@ -50,7 +50,7 @@
         height: 50px;
         font-weight: normal;
         font-size: 1.25em;
-        border-bottom: 2px solid var(--third-color);
+        border-bottom: 2px solid var(--second-color);
     }
 
 
@@ -97,6 +97,7 @@
     main section {
         margin: auto;
         width: 90%;
+        max-width: 800px;
         color: var(--third-color);
     }
 
